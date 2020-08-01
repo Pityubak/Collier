@@ -27,8 +27,4 @@ public class Collier {
         bridgeTo.collect(consumer);
     }
 
-    public void linkToFiltering(Consumer filter) {
-        bridgeTo.filter(filter);
-    }
-
 }

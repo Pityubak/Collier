@@ -3,7 +3,6 @@ package com.pityubak.collier.link;
 import com.pityubak.collier.builder.InstanceCollector;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 /**
  *
@@ -24,17 +23,4 @@ public class CollectionBridge<J> implements Bridge<J> {
         List<J> collectedClasses = instanceCollection.collect();
         collectedClasses.forEach(linkTo);
     }
-
-    @Override
-    public <Q> Q collect(Function<List<J>, Q> function) {
-        List<J> collectedClasses = instanceCollection.collect();
-        return function.apply(collectedClasses);
-    }
-
-    @Override
-    public void filter(Consumer filter) {
-        List<J> collectedClasses = instanceCollection.collect();
-        filter.accept(collectedClasses);
-    }
-
 }
